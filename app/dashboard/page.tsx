@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function DashboardPage() {
+const [showGames, setShowGames] = useState(false);
+
 const games = [
 { icon: "🎮", name: "Mobile Legends" },
 { icon: "🔥", name: "Free Fire" },
@@ -41,34 +47,50 @@ return (
     </div>
   </section>
 
-  <section className="dashboard-menu">
-    <h2>🎮 JUEGOS</h2>
+  {!showGames ? (
+    <section className="dashboard-menu">
+      <button
+        className="menu-card"
+        type="button"
+        onClick={() => setShowGames(true)}
+      >
+        🎮 JUEGOS
+        <p>Ver todos los juegos disponibles</p>
+      </button>
 
-    <div className="menu-grid">
-      {games.map((game) => (
-        <button
-          className="menu-card"
-          key={game.name}
-          type="button"
-        >
-          <span>{game.icon}</span>
-          <span>{game.name}</span>
+      <div className="menu-grid dashboard-extra-menu">
+        <button className="menu-card" type="button">
+          ⭐ Star para Telegram
         </button>
-      ))}
-    </div>
+        <button className="menu-card" type="button">
+          🎁 Gift Cards
+        </button>
+        <button className="menu-card" type="button">
+          ⚙️ Configuración
+        </button>
+      </div>
+    </section>
+  ) : (
+    <section className="dashboard-menu">
+      <button
+        className="menu-card"
+        type="button"
+        onClick={() => setShowGames(false)}
+      >
+        ⬅️ VOLVER AL INICIO
+      </button>
 
-    <div className="menu-grid dashboard-extra-menu">
-      <button className="menu-card" type="button">
-        ⭐ Star para Telegram
-      </button>
-      <button className="menu-card" type="button">
-        🎁 Gift Cards
-      </button>
-      <button className="menu-card" type="button">
-        ⚙️ Configuración
-      </button>
-    </div>
-  </section>
+      <h2>🎮 TODOS LOS JUEGOS</h2>
+
+      <div className="menu-grid">
+        {games.map((game) => (
+          <button className="menu-card" key={game.name} type="button">
+            {game.icon} {game.name}
+          </button>
+        ))}
+      </div>
+    </section>
+  )}
 </main>
 
 );
