@@ -6,10 +6,13 @@ export default function DashboardPage() {
           <p>Bienvenido a LEGIONS VENTAS</p>
           <h1>Hola, Oliver 👋</h1>
         </div>
-      </div>
+           </div>
 
-      <section className="dashboard-stats">
-        <div className="stat-card">
+      <h2 style={{ color: "white", marginTop: "30px" }}>
+        🎮 JUEGOS — PRUEBA DEFINITIVA
+      </h2>
+
+      <section className="dashboard-stats"> 
           <span>💰</span>
           <p>BALANCE</p>
           <h2>0.00 USDT</h2>
