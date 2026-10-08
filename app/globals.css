@@ -829,10 +829,6 @@ a {
   font-size: 17px;
   font-weight: 900;
 }
-  margin: 0;
-  color: white;
-  font-size: 24px;
-  font-weight: 900;
 }
 
 @media (max-width: 700px) {
