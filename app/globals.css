@@ -757,3 +757,30 @@ a {
     font-size: 15px;
   }
 }
+/* DASHBOARD */
+.dashboard-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #000000;
+  color: white;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.dashboard-header p {
+  color: #999999;
+  font-size: 16px;
+  margin: 0;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+}
