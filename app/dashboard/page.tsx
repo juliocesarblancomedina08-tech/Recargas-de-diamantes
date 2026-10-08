@@ -26,7 +26,7 @@ return (
 <h1>Hola, Oliver 👋</h1>
 </div>
 </header>
-
+<button className="settings-button" type="button" aria-label="Configuración">⚙️</button>
   <section className="dashboard-stats">
     <div className="stat-card">
       <span>💰</span>
