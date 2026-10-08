@@ -29,7 +29,7 @@ export default function DashboardPage() {
             </section>
 
       <section className="dashboard-menu">
-        <h2>🎮 JUEGOS</h2>
+        <h2 style={{ color: "white" }}>🎮 JUEGOS — PRUEBA</h2>
 
         <div className="menu-grid">
           <div className="menu-card">🎮 Mobile Legends</div>
