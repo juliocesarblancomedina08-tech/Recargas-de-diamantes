@@ -28,5 +28,12 @@ export default function DashboardPage() {
         </div>
       </section>
     </main>
+          <section className="dashboard-menu">
+        <div className="menu-card">
+          <span>🎮</span>
+          <h2>JUEGOS</h2>
+          <p>Recargas de videojuegos</p>
+        </div>
+      </section>
   );
 }
