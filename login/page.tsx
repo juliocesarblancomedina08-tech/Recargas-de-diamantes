@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,9 @@ export default function LoginPage() {
       <div className="login-box">
         <div className="logo">LV</div>
 
-        <h1>LEGIONS <span>VENTAS</span></h1>
+        <h1>
+          LEGIONS <span>VENTAS</span>
+        </h1>
 
         <p className="subtitle">
           Inicia sesión para continuar
@@ -27,6 +30,7 @@ export default function LoginPage() {
         </div>
 
         <label>Correo electrónico</label>
+
         <input
           type="email"
           placeholder="tu@gmail.com"
@@ -35,6 +39,7 @@ export default function LoginPage() {
         />
 
         <label>Contraseña</label>
+
         <input
           type="password"
           placeholder="••••••••"
@@ -47,7 +52,10 @@ export default function LoginPage() {
         </button>
 
         <p className="register-text">
-          ¿No tienes una cuenta? <span>Registrarse</span>
+          ¿No tienes una cuenta?{" "}
+          <Link href="/register">
+            <span>Registrarse</span>
+          </Link>
         </p>
       </div>
     </main>
