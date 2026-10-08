@@ -6,6 +6,7 @@
   --primary: #e50914;
   --primary-dark: #a00008;
   --card: #101010;
+  --card-hover: #171717;
   --border: #292929;
   --muted: #999999;
 }
@@ -43,12 +44,9 @@ a {
   text-decoration: none;
 }
 
-::selection {
-  background: var(--primary);
-  color: white;
-}
-
-/* Contenedor principal */
+/* =========================
+   GENERAL
+========================= */
 
 .legions-container {
   width: 100%;
@@ -57,32 +55,26 @@ a {
   padding: 0 20px;
 }
 
-/* Botón rojo principal */
-
 .legions-button {
   background: var(--primary);
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 12px 20px;
+  padding: 13px 22px;
   font-weight: 700;
   transition: 0.2s ease;
 }
 
 .legions-button:hover {
   background: #ff1a25;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
-
-/* Tarjetas */
 
 .legions-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
 }
-
-/* Campos */
 
 .legions-input {
   width: 100%;
@@ -98,7 +90,484 @@ a {
   border-color: var(--primary);
 }
 
-/* Scrollbar */
+/* =========================
+   LOGIN / REGISTER
+========================= */
+
+.login-page,
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background:
+    radial-gradient(circle at top, #250000 0%, #050505 45%);
+}
+
+.login-box,
+.register-box {
+  width: 100%;
+  max-width: 430px;
+  background: #0d0d0d;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.login-box h1,
+.register-box h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.login-box h1 span,
+.register-box h1 span {
+  color: var(--primary);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.google-button {
+  width: 100%;
+  background: white;
+  color: #111;
+  border: none;
+  border-radius: 10px;
+  padding: 13px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.google-button span {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: #666;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #292929;
+}
+
+.login-box label,
+.register-box label {
+  display: block;
+  margin: 14px 0 7px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.login-box input,
+.register-box input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 9px;
+  border: 1px solid #292929;
+  background: #080808;
+  color: white;
+  outline: none;
+}
+
+.login-box input:focus,
+.register-box input:focus {
+  border-color: var(--primary);
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-weight: 900;
+}
+
+.login-button:hover {
+  background: #ff1a25;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.register-text span {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+}
+
+.dashboard-header h1 span {
+  color: var(--primary);
+}
+
+.dashboard-header p {
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.settings-button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #111;
+  color: white;
+  font-size: 21px;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #170000, #0e0e0e);
+  border: 1px solid #3a0a0a;
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 35px;
+}
+
+.balance-card p {
+  color: var(--muted);
+}
+
+.balance-card h2 {
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+.balance-card span {
+  color: #777;
+  font-size: 14px;
+}
+
+.wallet-button {
+  display: block;
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 800;
+}
+
+.services h2 {
+  margin-bottom: 18px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.services-grid button {
+  min-height: 110px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+}
+
+.services-grid button span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* =========================
+   WALLET
+========================= */
+
+.wallet-page,
+.settings-page,
+.games-page {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.wallet-header,
+.settings-header,
+.games-header {
+  margin-bottom: 25px;
+}
+
+.wallet-header h1,
+.settings-header h1,
+.games-header h1 {
+  font-size: 30px;
+}
+
+.wallet-header p,
+.settings-header p,
+.games-header p {
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.wallet-balance {
+  background: linear-gradient(135deg, #170000, #0d0d0d);
+  border: 1px solid #3a0a0a;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.wallet-balance p {
+  color: var(--muted);
+}
+
+.wallet-balance h2 {
+  font-size: 36px;
+  margin: 8px 0;
+}
+
+.wallet-balance span {
+  color: #777;
+}
+
+.deposit-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.deposit-card > p {
+  color: var(--muted);
+  margin: 10px 0 20px;
+  line-height: 1.5;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.qr-placeholder {
+  width: 190px;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.wallet-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.wallet-address {
+  margin-top: 8px;
+  background: #080808;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 14px;
+  color: #777;
+  word-break: break-all;
+}
+
+.copy-button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-weight: 800;
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item h2 {
+  font-size: 17px;
+}
+
+.setting-item p {
+  color: var(--muted);
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.setting-item > span {
+  font-size: 25px;
+  color: #777;
+}
+
+.logout-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* =========================
+   GAMES
+========================= */
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.game-card {
+  min-height: 130px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.game-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  background: var(--card-hover);
+}
+
+.game-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.game-card span {
+  font-weight: 700;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .login-box,
+  .register-box {
+    padding: 25px 20px;
+  }
+
+  .dashboard {
+    padding: 20px 15px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .balance-card h2,
+  .wallet-balance h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -115,4 +584,4 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
-}
+  }
