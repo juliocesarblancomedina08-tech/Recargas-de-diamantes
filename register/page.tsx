@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -61,7 +62,10 @@ export default function RegisterPage() {
         </button>
 
         <p className="register-text">
-          ¿Ya tienes una cuenta? <span>Iniciar sesión</span>
+          ¿Ya tienes una cuenta?{" "}
+          <Link href="/login">
+            <span>Iniciar sesión</span>
+          </Link>
         </p>
       </div>
     </main>
