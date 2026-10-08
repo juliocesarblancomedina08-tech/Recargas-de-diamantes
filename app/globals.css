@@ -1,20 +1,27 @@
 @import "tailwindcss";
 
+/* ========================================
+   LEGIONS VENTAS — ESTILOS GENERALES
+======================================== */
+
 :root {
   --background: #050505;
   --foreground: #ffffff;
-  --primary: #e50914;
-  --primary-dark: #a00008;
+  --primary: #a855f7;
+  --primary-hover: #9333ea;
+  --primary-light: #c084fc;
   --card: #101010;
   --card-hover: #171717;
   --border: #292929;
   --muted: #999999;
+  --purple-border: #542080;
+  --radius: 14px;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
@@ -22,10 +29,10 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
 }
 
 button,
@@ -39,14 +46,25 @@ button {
   cursor: pointer;
 }
 
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* =========================
-   GENERAL
-========================= */
+img {
+  max-width: 100%;
+}
+
+/* ========================================
+   CONTENEDORES Y COMPONENTES GENERALES
+======================================== */
 
 .legions-container {
   width: 100%;
@@ -56,33 +74,33 @@ a {
 }
 
 .legions-button {
-  background: var(--primary);
-  color: white;
+  padding: 13px 22px;
   border: none;
   border-radius: 10px;
-  padding: 13px 22px;
-  font-weight: 700;
-  transition: 0.2s ease;
+  background: var(--primary);
+  color: white;
+  font-weight: 800;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .legions-button:hover {
-  background: #ff1a25;
+  background: var(--primary-hover);
   transform: translateY(-2px);
 }
 
 .legions-card {
-  background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius);
+  background: var(--card);
 }
 
 .legions-input {
   width: 100%;
-  background: #0b0b0b;
-  color: white;
+  padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 12px 14px;
+  background: #0b0b0b;
+  color: white;
   outline: none;
 }
 
@@ -90,17 +108,146 @@ a {
   border-color: var(--primary);
 }
 
-/* =========================
-   LOGIN / REGISTER
-========================= */
+/* ========================================
+   ANIMACIÓN DE BORDE MORADO
+======================================== */
 
-/* LOGIN / REGISTER */
+@keyframes borderLight {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes purplePulse {
+  0%,
+  100% {
+    border-color: #542080;
+  }
+
+  50% {
+    border-color: #a855f7;
+  }
+}
+
+/* ========================================
+   BIENVENIDA
+======================================== */
+
+.home-page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: #000000;
+}
+
+.welcome-box {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  padding: 3px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #1a1a1a;
+}
+
+.welcome-box::before {
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    #8b5cf6 330deg,
+    #c084fc 350deg,
+    transparent 360deg
+  );
+  content: "";
+  animation: borderLight 4s linear infinite;
+}
+
+.welcome-box::after {
+  position: absolute;
+  inset: 3px;
+  z-index: 1;
+  border-radius: 19px;
+  background: #050505;
+  content: "";
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  border-radius: 19px;
+  text-align: center;
+}
+
+.welcome-label {
+  margin-bottom: 18px;
+  color: var(--primary-light);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.welcome-content h1 {
+  color: white;
+  font-size: clamp(42px, 9vw, 78px);
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.welcome-content h1 span {
+  color: var(--primary);
+}
+
+.welcome-description {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.welcome-button {
+  margin-top: 35px;
+  padding: 14px 26px;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  background: #090909;
+  color: white;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.welcome-button:hover {
+  transform: translateY(-2px);
+  background: var(--primary);
+}
+
+/* ========================================
+   LOGIN Y REGISTRO
+======================================== */
+
 .login-page,
 .register-page {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  min-height: 100vh;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   background: #000000;
 }
@@ -111,20 +258,18 @@ a {
   width: 100%;
   max-width: 430px;
   padding: 3px;
-  border-radius: 20px;
   overflow: hidden;
+  border-radius: 20px;
   background: #151515;
 }
 
-/* Luz morada recorriendo el borde */
 .login-box::before,
 .register-box::before {
-  content: "";
   position: absolute;
-  width: 180%;
-  height: 180%;
   top: -40%;
   left: -40%;
+  width: 180%;
+  height: 180%;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
@@ -133,18 +278,18 @@ a {
     #c084fc 350deg,
     transparent 360deg
   );
+  content: "";
   animation: borderLight 4s linear infinite;
 }
 
-/* Interior negro */
 .login-box::after,
 .register-box::after {
-  content: "";
   position: absolute;
-  inset: 3px;
-  background: #050505;
-  border-radius: 17px;
   z-index: 1;
+  inset: 3px;
+  border-radius: 17px;
+  background: #050505;
+  content: "";
 }
 
 .login-box > *,
@@ -154,53 +299,53 @@ a {
 }
 
 .logo {
+  display: flex;
   width: 60px;
   height: 60px;
-  margin: 0 auto 20px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background: #a855f7;
+  justify-content: center;
+  margin: 0 auto 20px;
   border-radius: 14px;
+  background: var(--primary);
   font-size: 22px;
   font-weight: 900;
 }
 
 .login-box h1,
 .register-box h1 {
+  margin-bottom: 8px;
   text-align: center;
   font-size: 28px;
-  margin-bottom: 8px;
 }
 
 .login-box h1 span,
 .register-box h1 span {
-  color: #a855f7;
+  color: var(--primary-light);
 }
 
 .subtitle {
-  text-align: center;
-  color: #999999;
   margin-bottom: 25px;
+  color: var(--muted);
+  text-align: center;
 }
 
 .google-button {
+  display: flex;
   width: 100%;
-  background: white;
-  color: #111111;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px;
   border: none;
   border-radius: 10px;
-  padding: 13px;
+  background: white;
+  color: #111111;
   font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 }
 
 .google-button span {
-  font-weight: 900;
   font-size: 20px;
+  font-weight: 900;
 }
 
 .separator {
@@ -213,10 +358,10 @@ a {
 
 .separator::before,
 .separator::after {
-  content: "";
   height: 1px;
   flex: 1;
-  background: #292929;
+  background: var(--border);
+  content: "";
 }
 
 .login-box label,
@@ -231,8 +376,8 @@ a {
 .register-box input {
   width: 100%;
   padding: 13px;
+  border: 1px solid var(--border);
   border-radius: 9px;
-  border: 1px solid #292929;
   background: #080808;
   color: white;
   outline: none;
@@ -240,7 +385,7 @@ a {
 
 .login-box input:focus,
 .register-box input:focus {
-  border-color: #a855f7;
+  border-color: var(--primary);
 }
 
 .login-button {
@@ -249,76 +394,251 @@ a {
   padding: 14px;
   border: none;
   border-radius: 10px;
-  background: #a855f7;
+  background: var(--primary);
   color: white;
   font-weight: 900;
   transition: 0.2s ease;
 }
 
 .login-button:hover {
-  background: #9333ea;
   transform: translateY(-2px);
+  background: var(--primary-hover);
 }
 
 .register-text {
-  text-align: center;
   margin-top: 22px;
-  color: #999999;
+  color: var(--muted);
   font-size: 14px;
+  text-align: center;
 }
 
 .register-text span {
-  color: #a855f7;
+  color: var(--primary-light);
   font-weight: 700;
 }
 
-/* =========================
-   DASHBOARD
-========================= */
+/* ========================================
+   DASHBOARD PRINCIPAL
+======================================== */
 
-.dashboard {
+.dashboard-page {
+  width: 100%;
   min-height: 100vh;
   padding: 25px;
-  max-width: 1100px;
-  margin: auto;
+  background: #000000;
+  color: white;
 }
 
 .dashboard-header {
+  position: relative;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+/* Solo el botón real de page.tsx.
+   No crear otro engranaje con ::before o ::after. */
+
+.settings-button {
+  display: flex;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
   align-items: center;
-  margin-bottom: 30px;
+  justify-content: center;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  background: #10091a;
+  color: white;
+  font-size: 20px;
 }
 
-.dashboard-header h1 {
-  font-size: 28px;
+.settings-button:hover {
+  background: #241034;
 }
 
-.dashboard-header h1 span {
-  color: var(--primary);
+.dashboard-header > div {
+  flex: 1;
+  min-width: 0;
 }
 
 .dashboard-header p {
+  margin: 0 0 6px;
   color: var(--muted);
-  margin-top: 5px;
+  font-size: 14px;
 }
 
-.settings-button {
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: #111;
+.dashboard-header h1 {
+  margin: 0;
   color: white;
-  font-size: 21px;
+  font-size: clamp(23px, 5vw, 32px);
+  font-weight: 900;
+}
+
+/* ========================================
+   ESTADÍSTICAS
+======================================== */
+
+.dashboard-stats {
+  display: grid;
+  width: 100%;
+  max-width: 850px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  position: relative;
+  min-width: 0;
+  padding: 18px 15px;
+  overflow: hidden;
+  border: 1px solid #2a1840;
+  border-radius: 14px;
+  background: #080808;
+}
+
+.stat-card::before {
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    #8b5cf6 330deg,
+    #c084fc 350deg,
+    transparent 360deg
+  );
+  content: "";
+  animation: borderLight 5s linear infinite;
+}
+
+.stat-card::after {
+  position: absolute;
+  z-index: 1;
+  inset: 2px;
+  border-radius: 12px;
+  background: #080808;
+  content: "";
+}
+
+.stat-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.stat-card > span {
+  font-size: 20px;
+}
+
+.stat-card p {
+  margin: 8px 0 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.stat-card h2 {
+  margin: 0;
+  color: white;
+  font-size: 17px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   MENÚ DEL DASHBOARD
+======================================== */
+
+.dashboard-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.menu-card {
+  display: block;
+  width: 100%;
+  min-height: 60px;
+  padding: 18px;
+  border: 1px solid var(--purple-border);
+  border-radius: 14px;
+  background: #080808;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: left;
+  overflow-wrap: anywhere;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.menu-card:hover {
+  border-color: var(--primary);
+  background: #110b18;
+}
+
+.menu-card p {
+  margin-top: 8px;
+  color: #aaaaaa;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.dashboard-extra-menu {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dashboard-menu > h2 {
+  margin: 10px 0 5px;
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+/* ========================================
+   CUADRÍCULA DE JUEGOS
+======================================== */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.menu-grid .menu-card {
+  min-height: 65px;
+}
+
+/* ========================================
+   DASHBOARD ANTIGUO / SERVICIOS
+======================================== */
+
+.dashboard {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 25px;
 }
 
 .balance-card {
-  background: linear-gradient(135deg, #170000, #0e0e0e);
+  margin-bottom: 35px;
+  padding: 28px;
   border: 1px solid #3a0a0a;
   border-radius: 18px;
-  padding: 28px;
-  margin-bottom: 35px;
+  background: linear-gradient(135deg, #170000, #0e0e0e);
 }
 
 .balance-card p {
@@ -326,23 +646,23 @@ a {
 }
 
 .balance-card h2 {
-  font-size: 38px;
   margin: 10px 0;
+  font-size: 38px;
 }
 
 .balance-card span {
-  color: #777;
+  color: #777777;
   font-size: 14px;
 }
 
 .wallet-button {
   display: block;
   margin-top: 20px;
-  background: var(--primary);
-  color: white;
+  padding: 12px 18px;
   border: none;
   border-radius: 10px;
-  padding: 12px 18px;
+  background: #e50914;
+  color: white;
   font-weight: 800;
 }
 
@@ -352,21 +672,21 @@ a {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
 }
 
 .services-grid button {
+  display: flex;
   min-height: 110px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--card);
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   font-size: 28px;
 }
 
@@ -375,16 +695,17 @@ a {
   font-weight: 700;
 }
 
-/* =========================
-   WALLET
-========================= */
+/* ========================================
+   PÁGINAS DE CARTERA, AJUSTES Y JUEGOS
+======================================== */
 
 .wallet-page,
 .settings-page,
 .games-page {
-  min-height: 100vh;
+  width: 100%;
   max-width: 1000px;
-  margin: auto;
+  min-height: 100vh;
+  margin: 0 auto;
   padding: 30px 20px;
 }
 
@@ -403,16 +724,16 @@ a {
 .wallet-header p,
 .settings-header p,
 .games-header p {
-  color: var(--muted);
   margin-top: 7px;
+  color: var(--muted);
 }
 
 .wallet-balance {
-  background: linear-gradient(135deg, #170000, #0d0d0d);
+  margin-bottom: 25px;
+  padding: 25px;
   border: 1px solid #3a0a0a;
   border-radius: 18px;
-  padding: 25px;
-  margin-bottom: 25px;
+  background: linear-gradient(135deg, #170000, #0d0d0d);
 }
 
 .wallet-balance p {
@@ -420,24 +741,25 @@ a {
 }
 
 .wallet-balance h2 {
-  font-size: 36px;
   margin: 8px 0;
+  font-size: 36px;
+  overflow-wrap: anywhere;
 }
 
 .wallet-balance span {
-  color: #777;
+  color: #777777;
 }
 
 .deposit-card {
-  background: var(--card);
+  padding: 25px;
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 25px;
+  background: var(--card);
 }
 
 .deposit-card > p {
-  color: var(--muted);
   margin: 10px 0 20px;
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -448,11 +770,11 @@ a {
 }
 
 .qr-placeholder {
+  display: flex;
   width: 190px;
   height: 190px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background: white;
   color: black;
   font-size: 30px;
@@ -466,11 +788,11 @@ a {
 
 .wallet-address {
   margin-top: 8px;
-  background: #080808;
+  padding: 14px;
   border: 1px solid var(--border);
   border-radius: 9px;
-  padding: 14px;
-  color: #777;
+  background: #080808;
+  color: #cccccc;
   word-break: break-all;
 }
 
@@ -478,28 +800,29 @@ a {
   width: 100%;
   margin-top: 12px;
   padding: 13px;
-  background: var(--primary);
-  color: white;
   border: none;
   border-radius: 9px;
+  background: var(--primary);
+  color: white;
   font-weight: 800;
 }
 
-/* =========================
-   SETTINGS
-========================= */
+/* ========================================
+   CONFIGURACIÓN
+======================================== */
 
 .settings-card {
-  background: var(--card);
+  overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 16px;
-  overflow: hidden;
+  background: var(--card);
 }
 
 .setting-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 15px;
   padding: 20px;
   border-bottom: 1px solid var(--border);
 }
@@ -513,95 +836,66 @@ a {
 }
 
 .setting-item p {
-  color: var(--muted);
   margin-top: 5px;
+  color: var(--muted);
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .setting-item > span {
+  color: #777777;
   font-size: 25px;
-  color: #777;
 }
 
 .logout-button {
   width: 100%;
   margin-top: 20px;
   padding: 14px;
-  background: transparent;
-  border: 1px solid var(--primary);
+  border: 1px solid #e50914;
   border-radius: 10px;
-  color: var(--primary);
+  background: transparent;
+  color: #e50914;
   font-weight: 800;
 }
 
-/* =========================
-   GAMES
-========================= */
+/* ========================================
+   CUADRÍCULA DE JUEGOS ANTIGUA
+======================================== */
 
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 15px;
 }
 
 .game-card {
   min-height: 130px;
   padding: 20px;
-  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 15px;
+  background: var(--card);
   color: white;
   transition: 0.2s ease;
 }
 
 .game-card:hover {
-  border-color: var(--primary);
   transform: translateY(-3px);
+  border-color: var(--primary);
   background: var(--card-hover);
 }
 
 .game-icon {
-  font-size: 38px;
   margin-bottom: 12px;
+  font-size: 38px;
 }
 
 .game-card span {
   font-weight: 700;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-  .login-box,
-  .register-box {
-    padding: 25px 20px;
-  }
-
-  .dashboard {
-    padding: 20px 15px;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .games-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .balance-card h2,
-  .wallet-balance h2 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 400px) {
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* ========================================
+   SELECCIÓN Y BARRA DE DESPLAZAMIENTO
+======================================== */
 
 ::selection {
   background: var(--primary);
@@ -617,129 +911,19 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
   border-radius: 10px;
+  background: #333333;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
-  }
-/* WELCOME PAGE */
-.home-page {
-  min-height: 100vh;
-  background: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px;
 }
 
-.welcome-box {
-  position: relative;
-  width: 100%;
-  max-width: 850px;
-  padding: 3px;
-  border-radius: 22px;
-  overflow: hidden;
-  background: #1a1a1a;
-}
+/* ========================================
+   ADAPTACIÓN A MÓVILES
+======================================== */
 
-/* Luz morada recorriendo el borde */
-.welcome-box::before {
-  content: "";
-  position: absolute;
-  width: 180%;
-  height: 180%;
-  top: -40%;
-  left: -40%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 300deg,
-    #8b5cf6 330deg,
-    #c084fc 350deg,
-    transparent 360deg
-  );
-  animation: borderLight 4s linear infinite;
-}
-
-/* Interior negro */
-.welcome-box::after {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  background: #050505;
-  border-radius: 19px;
-  z-index: 1;
-}
-
-.welcome-content {
-  position: relative;
-  z-index: 2;
-  min-height: 500px;
-  padding: 60px 30px;
-  border-radius: 19px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.welcome-label {
-  color: #c084fc;
-  font-weight: 800;
-  letter-spacing: 5px;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
-
-.welcome-content h1 {
-  font-size: clamp(42px, 9vw, 78px);
-  font-weight: 900;
-  letter-spacing: -3px;
-  color: white;
-}
-
-.welcome-content h1 span {
-  color: #a855f7;
-}
-
-.welcome-description {
-  color: #999;
-  font-size: 17px;
-  margin-top: 18px;
-}
-
-.welcome-button {
-  margin-top: 35px;
-  padding: 14px 26px;
-  border: 1px solid #a855f7;
-  border-radius: 10px;
-  background: #090909;
-  color: white;
-  font-weight: 800;
-  transition: 0.25s ease;
-}
-
-.welcome-button:hover {
-  background: #a855f7;
-  color: white;
-  transform: translateY(-2px);
-}
-
-@keyframes borderLight {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* MÓVIL */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .home-page {
     padding: 15px;
   }
@@ -756,112 +940,33 @@ a {
   .welcome-description {
     font-size: 15px;
   }
-}
-/* DASHBOARD */
-.dashboard-page {
-  min-height: 100vh;
-  padding: 35px;
-  background: #000000;
-  color: white;
-}
 
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.dashboard-header p {
-  color: #999999;
-  font-size: 16px;
-  margin: 0;
-}
-
-.dashboard-header h1 {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 900;
-  color: white;
-}
-.dashboard-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 28px;
-  max-width: 700px;
-}
-
-.stat-card {
-  position: relative;
-  padding: 18px 15px;
-  background: #080808;
-  border: 1px solid #2a1840;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.stat-card::before {
-  content: "";
-  position: absolute;
-  width: 180%;
-  height: 180%;
-  top: -40%;
-  left: -40%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 300deg,
-    #8b5cf6 330deg,
-    #c084fc 350deg,
-    transparent 360deg
-  );
-  animation: borderLight 4s linear infinite;
-}
-
-.stat-card::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  background: #080808;
-  border-radius: 12px;
-  z-index: 1;
-}
-
-.stat-card > * {
-  position: relative;
-  z-index: 2;
-}
-
-.stat-card span {
-  font-size: 20px;
-}
-
-.stat-card p {
-  margin: 8px 0 4px;
-  color: #999999;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.stat-card h2 {
-  margin: 0;
-  color: white;
-  font-size: 17px;
-  font-weight: 900;
-}
-
-@media (max-width: 700px) {
-  .dashboard-page {
+  .login-page,
+  .register-page {
     padding: 15px;
+  }
+
+  .dashboard-page {
+    padding: 18px 15px;
+  }
+
+  .dashboard-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-header p {
+    font-size: 12px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 24px;
   }
 
   .dashboard-stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
-    margin-top: 22px;
-    max-width: 100%;
+    margin-top: 20px;
   }
 
   .stat-card {
@@ -869,140 +974,110 @@ a {
     border-radius: 11px;
   }
 
-  .stat-card span {
+  .stat-card > span {
     font-size: 17px;
   }
 
   .stat-card p {
-    font-size: 9px;
     margin: 6px 0 3px;
+    font-size: 9px;
   }
 
   .stat-card h2 {
-    font-size: 13px;
+    font-size: 12px;
   }
-}
-/* =========================
-   JUEGOS
-========================= */
 
-.dashboard-menu {
-  margin-top: 30px;
-}
-
-.dashboard-menu h2 {
-  margin: 0 0 15px;
-  color: white;
-  font-size: 22px;
-  font-weight: 900;
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.menu-card {
-  padding: 18px 14px;
-  background: #080808;
-  border: 1px solid #2a1840;
-  border-radius: 14px;
-  color: white;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-@media (max-width: 700px) {
   .dashboard-menu {
-    margin-top: 25px;
-  }
-
-  .dashboard-menu h2 {
-    font-size: 19px;
+    gap: 12px;
+    margin-top: 24px;
   }
 
   .menu-card {
-    padding: 16px 10px;
-    font-size: 12px;
-  }
-}
-/* ===== ORGANIZACIÓN DEL DASHBOARD ===== */
-
-.dashboard-header {
-  position: relative;
-  padding-top: 55px;
-}
-
-.dashboard-header::after {
-  content: "⚙️";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #10091a;
-  border: 1px solid #a855f7;
-  border-radius: 10px;
-  font-size: 21px;
-}
-
-.dashboard-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.dashboard-menu > button,
-.dashboard-extra-menu > button {
-  width: 100%;
-  min-height: 65px;
-  text-align: left;
-  padding: 20px;
-  background: #080808;
-  border: 1px solid #542080;
-  border-radius: 14px;
-  color: white;
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.dashboard-menu > button p {
-  margin: 8px 0 0;
-  color: #aaaaaa;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.dashboard-extra-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  width: 100%;
-}
-
-.dashboard-menu > h2 {
-  margin-top: 10px;
-}
-
-@media (max-width: 700px) {
-  .dashboard-header {
-    padding-top: 52px;
-  }
-
-  .dashboard-extra-menu {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .dashboard-menu > button,
-  .dashboard-extra-menu > button {
-    width: 100%;
-    min-height: 60px;
-    padding: 18px;
+    min-height: 58px;
+    padding: 17px 14px;
     font-size: 14px;
   }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .dashboard-menu > h2 {
+    font-size: 19px;
+  }
+
+  .dashboard,
+  .wallet-page,
+  .settings-page,
+  .games-page {
+    padding: 20px 15px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .balance-card h2,
+  .wallet-balance h2 {
+    font-size: 30px;
+  }
 }
+
+@media (max-width: 400px) {
+  .dashboard-page {
+    padding: 15px 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 21px;
+  }
+
+  .dashboard-stats {
+    gap: 6px;
+  }
+
+  .stat-card {
+    padding: 10px 5px;
+  }
+
+  .stat-card p {
+    font-size: 8px;
+  }
+
+  .stat-card h2 {
+    font-size: 11px;
+  }
+
+  .menu-card {
+    padding: 15px 11px;
+    font-size: 13px;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD: REDUCIR ANIMACIONES
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  
+
+
+ 
