@@ -1,11 +1,24 @@
+
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function handleLogin() {
+    if (!email || !password) {
+      alert("Completa tu correo y contraseña");
+      return;
+    }
+
+    router.push("/dashboard");
+  }
 
   return (
     <main className="login-page">
@@ -47,7 +60,10 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="login-button">
+        <button
+          className="login-button"
+          onClick={handleLogin}
+        >
           INICIAR SESIÓN
         </button>
 
