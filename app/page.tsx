@@ -5,11 +5,11 @@ export default function Home() {
     <main className="home-page">
       <section className="welcome-box">
         <div className="welcome-content">
-          <p className="welcome-label">BIENVENIDO</p>
+          <p className="welcome-label">BIENVENIDOS</p>
 
-          <h1>
-            LEGIONS <span>VENTAS</span>
-          </h1>
+<h1>
+  LEGIONS <span>VENTAS</span>
+</h1>
 
           <p className="welcome-description">
             Recargas de videojuegos y servicios digitales
