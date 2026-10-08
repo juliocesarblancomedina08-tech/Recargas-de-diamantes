@@ -94,26 +94,63 @@ a {
    LOGIN / REGISTER
 ========================= */
 
+/* LOGIN / REGISTER */
 .login-page,
 .register-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px;
-  background:
-    radial-gradient(circle at top, #250000 0%, #050505 45%);
+  padding: 20px;
+  background: #000000;
 }
 
 .login-box,
 .register-box {
+  position: relative;
   width: 100%;
   max-width: 430px;
-  background: #0d0d0d;
-  border: 1px solid #292929;
-  border-radius: 18px;
-  padding: 35px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #151515;
+}
+
+/* Luz morada recorriendo el borde */
+.login-box::before,
+.register-box::before {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  top: -40%;
+  left: -40%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    #8b5cf6 330deg,
+    #c084fc 350deg,
+    transparent 360deg
+  );
+  animation: borderLight 4s linear infinite;
+}
+
+/* Interior negro */
+.login-box::after,
+.register-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #050505;
+  border-radius: 17px;
+  z-index: 1;
+}
+
+.login-box > *,
+.register-box > * {
+  position: relative;
+  z-index: 2;
 }
 
 .logo {
@@ -123,7 +160,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--primary);
+  background: #a855f7;
   border-radius: 14px;
   font-size: 22px;
   font-weight: 900;
@@ -138,19 +175,19 @@ a {
 
 .login-box h1 span,
 .register-box h1 span {
-  color: var(--primary);
+  color: #a855f7;
 }
 
 .subtitle {
   text-align: center;
-  color: var(--muted);
+  color: #999999;
   margin-bottom: 25px;
 }
 
 .google-button {
   width: 100%;
   background: white;
-  color: #111;
+  color: #111111;
   border: none;
   border-radius: 10px;
   padding: 13px;
@@ -171,7 +208,7 @@ a {
   align-items: center;
   gap: 12px;
   margin: 22px 0;
-  color: #666;
+  color: #666666;
 }
 
 .separator::before,
@@ -203,7 +240,7 @@ a {
 
 .login-box input:focus,
 .register-box input:focus {
-  border-color: var(--primary);
+  border-color: #a855f7;
 }
 
 .login-button {
@@ -212,24 +249,26 @@ a {
   padding: 14px;
   border: none;
   border-radius: 10px;
-  background: var(--primary);
+  background: #a855f7;
   color: white;
   font-weight: 900;
+  transition: 0.2s ease;
 }
 
 .login-button:hover {
-  background: #ff1a25;
+  background: #9333ea;
+  transform: translateY(-2px);
 }
 
 .register-text {
   text-align: center;
   margin-top: 22px;
-  color: var(--muted);
+  color: #999999;
   font-size: 14px;
 }
 
 .register-text span {
-  color: var(--primary);
+  color: #a855f7;
   font-weight: 700;
 }
 
