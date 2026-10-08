@@ -26,6 +26,23 @@ export default function DashboardPage() {
           <p>PEDIDOS</p>
           <h2>0</h2>
         </div>
+            </section>
+
+      <section className="dashboard-menu">
+        <h2>🎮 JUEGOS</h2>
+
+        <div className="menu-grid">
+          <div className="menu-card">🎮 Mobile Legends</div>
+          <div className="menu-card">🔥 Free Fire</div>
+          <div className="menu-card">🧱 Roblox</div>
+          <div className="menu-card">👑 Honor of Kings</div>
+          <div className="menu-card">⚔️ Delta Force</div>
+          <div className="menu-card">🔫 PUBG Mobile</div>
+          <div className="menu-card">💥 Blood Strike</div>
+          <div className="menu-card">⚽ FC Mobile</div>
+          <div className="menu-card">🎯 Call of Duty Mobile</div>
+          <div className="menu-card">🍖 Sausage Man</div>
+        </div>
       </section>
     </main>
         
