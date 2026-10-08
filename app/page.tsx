@@ -2,54 +2,23 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="legions-container">
-      <section
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          gap: "20px",
-        }}
-      >
-        <div>
-          <p
-            style={{
-              color: "#e50914",
-              fontWeight: "700",
-              letterSpacing: "3px",
-              marginBottom: "10px",
-            }}
-          >
-            BIENVENIDO
-          </p>
+    <main className="home-page">
+      <section className="welcome-box">
+        <div className="welcome-content">
+          <p className="welcome-label">BIENVENIDO</p>
 
-          <h1
-            style={{
-              fontSize: "clamp(40px, 12vw, 80px)",
-              fontWeight: "900",
-              letterSpacing: "-2px",
-            }}
-          >
-            LEGIONS <span style={{ color: "#e50914" }}>VENTAS</span>
+          <h1>
+            LEGIONS <span>VENTAS</span>
           </h1>
 
-          <p
-            style={{
-              color: "#999",
-              fontSize: "17px",
-              marginTop: "15px",
-            }}
-          >
+          <p className="welcome-description">
             Recargas de videojuegos y servicios digitales
           </p>
-        </div>
 
-        <Link href="/login" className="legions-button">
-          Entrar a LEGIONS VENTAS
-        </Link>
+          <Link href="/login" className="welcome-button">
+            ENTRAR A LEGIONS VENTAS
+          </Link>
+        </div>
       </section>
     </main>
   );
