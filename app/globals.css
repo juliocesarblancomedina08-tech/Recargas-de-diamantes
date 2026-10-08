@@ -804,11 +804,33 @@ a {
 .stat-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border: 1px solid #a855f7;
-  border-radius: 14px;
-  opacity: 0.35;
-  pointer-events: none;
+  width: 180%;
+  height: 180%;
+  top: -40%;
+  left: -40%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    #8b5cf6 330deg,
+    #c084fc 350deg,
+    transparent 360deg
+  );
+  animation: borderLight 4s linear infinite;
+}
+
+.stat-card::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #080808;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.stat-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .stat-card span {
