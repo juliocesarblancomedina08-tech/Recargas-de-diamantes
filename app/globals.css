@@ -927,3 +927,82 @@ a {
     font-size: 12px;
   }
 }
+/* ===== ORGANIZACIÓN DEL DASHBOARD ===== */
+
+.dashboard-header {
+  position: relative;
+  padding-top: 55px;
+}
+
+.dashboard-header::after {
+  content: "⚙️";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #10091a;
+  border: 1px solid #a855f7;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+.dashboard-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dashboard-menu > button,
+.dashboard-extra-menu > button {
+  width: 100%;
+  min-height: 65px;
+  text-align: left;
+  padding: 20px;
+  background: #080808;
+  border: 1px solid #542080;
+  border-radius: 14px;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.dashboard-menu > button p {
+  margin: 8px 0 0;
+  color: #aaaaaa;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dashboard-extra-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.dashboard-menu > h2 {
+  margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .dashboard-header {
+    padding-top: 52px;
+  }
+
+  .dashboard-extra-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard-menu > button,
+  .dashboard-extra-menu > button {
+    width: 100%;
+    min-height: 60px;
+    padding: 18px;
+    font-size: 14px;
+  }
+}
