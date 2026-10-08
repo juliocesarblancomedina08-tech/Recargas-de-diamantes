@@ -21,12 +21,20 @@ const games = [
 return (
 <main className="dashboard-page">
 <header className="dashboard-header">
-<div>
-<p>Bienvenido a LEGIONS VENTAS</p>
-<h1>Hola, Oliver 👋</h1>
-</div>
-</header>
-<button className="settings-button" type="button" aria-label="Configuración">⚙️</button>
+<button
+className="settings-button"
+type="button"
+aria-label="Configuración"
+>
+⚙️
+</button>
+
+    <div>
+      <p>Bienvenido a LEGIONS VENTAS</p>
+      <h1>Hola, Oliver 👋</h1>
+    </div>
+  </header>
+
   <section className="dashboard-stats">
     <div className="stat-card">
       <span>💰</span>
@@ -58,15 +66,13 @@ return (
         <p>Ver todos los juegos disponibles</p>
       </button>
 
-      <div className="menu-grid dashboard-extra-menu">
+      <div className="dashboard-extra-menu">
         <button className="menu-card" type="button">
           ⭐ Star para Telegram
         </button>
+
         <button className="menu-card" type="button">
           🎁 Gift Cards
-        </button>
-        <button className="menu-card" type="button">
-          ⚙️ Configuración
         </button>
       </div>
     </section>
