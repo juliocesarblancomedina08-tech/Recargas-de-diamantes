@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="legions-container">
@@ -45,9 +47,9 @@ export default function Home() {
           </p>
         </div>
 
-        <button className="legions-button">
+        <Link href="/login" className="legions-button">
           Entrar a LEGIONS VENTAS
-        </button>
+        </Link>
       </section>
     </main>
   );
