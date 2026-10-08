@@ -832,10 +832,31 @@ a {
 
 @media (max-width: 700px) {
   .dashboard-page {
-    padding: 20px;
+    padding: 15px;
   }
 
   .dashboard-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 22px;
+    max-width: 100%;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+    border-radius: 11px;
+  }
+
+  .stat-card span {
+    font-size: 17px;
+  }
+
+  .stat-card p {
+    font-size: 9px;
+    margin: 6px 0 3px;
+  }
+
+  .stat-card h2 {
+    font-size: 13px;
   }
 }
