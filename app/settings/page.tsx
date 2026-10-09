@@ -11,7 +11,7 @@ export default function SettingsPage() {
     { icon: "▤", title: "Billetera", description: "Consulta tu saldo y depósitos" },
     { icon: "📊", title: "Estadísticas", description: "Revisa tu actividad" },
     { icon: "👤", title: "Mi perfil", description: "Información de tu cuenta" },
-    { icon: "🎧", title: "Soporte", description: "Obtén ayuda" },
+    { icon: "🎧", title: "Soporte", description: "Estamos aquí para ayudarte" },
   ];
 
   return (
@@ -30,7 +30,7 @@ export default function SettingsPage() {
           className="settings-close"
           type="button"
           onClick={() => router.push("/dashboard")}
-          aria-label="Volver al panel"
+          aria-label="Volver"
         >
           ×
         </button>
@@ -44,14 +44,14 @@ export default function SettingsPage() {
         </div>
       </section>
 
-      <p className="settings-section-title">AJUSTES</p>
+      <p className="settings-section-title">CENTRO DE CONTROL</p>
 
       <section className="settings-options">
         {options.map((option) => (
           <button
             className="settings-option"
-            type="button"
             key={option.title}
+            type="button"
             onClick={() => setSelected(option.title)}
           >
             <span className="settings-option-icon">{option.icon}</span>
@@ -65,7 +65,7 @@ export default function SettingsPage() {
       </section>
 
       {selected && (
-        <section className="settings-notice" role="status">
+        <section className="settings-notice">
           <strong>{selected}</strong>
           <p>Esta sección estará disponible próximamente.</p>
           <button type="button" onClick={() => setSelected("")}>
@@ -79,8 +79,12 @@ export default function SettingsPage() {
         type="button"
         onClick={() => router.push("/login")}
       >
-        ↪ Cerrar sesión
+        ↪ CERRAR SESIÓN
       </button>
+
+      <footer className="settings-footer">
+        LEGIONS VENTAS · TU MUNDO DIGITAL
+      </footer>
     </main>
   );
 }
