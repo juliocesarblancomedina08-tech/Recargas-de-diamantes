@@ -620,3 +620,268 @@ a {
     animation: none;
   }
 }
+/* ===== AJUSTES LEGIONS VENTAS ===== */
+
+.settings-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 28px;
+  color: #f5f1ff;
+  background:
+    radial-gradient(ellipse at 0% 15%, #38105255, transparent 38%),
+    radial-gradient(ellipse at 100% 55%, #50108040, transparent 38%),
+    #08070b;
+}
+
+.settings-page::before,
+.settings-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  pointer-events: none;
+  background: linear-gradient(
+    transparent,
+    #a855f7,
+    #e879f9,
+    #a855f7,
+    transparent
+  );
+  box-shadow: 0 0 12px #a855f7, 0 0 28px #9333ea;
+}
+
+.settings-page::before {
+  left: 0;
+}
+
+.settings-page::after {
+  right: 0;
+}
+
+.settings-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #a855f744;
+}
+
+.settings-brand h1 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1.15;
+}
+
+.settings-brand h1 span {
+  color: #c084fc;
+  text-shadow: 0 0 15px #a855f777;
+}
+
+.settings-brand-line {
+  display: inline-block;
+  width: 6px;
+  height: 58px;
+  margin-right: 13px;
+  border-radius: 8px;
+  vertical-align: middle;
+  background: #a855f7;
+  box-shadow: 0 0 16px #a855f7;
+}
+
+.settings-close {
+  width: 66px;
+  height: 66px;
+  color: white;
+  font-size: 32px;
+  border: 1px solid #a855f755;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #24142f, #100c15);
+  box-shadow: 0 0 18px #9333ea22;
+}
+
+.settings-account {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  margin-bottom: 32px;
+  border: 1px solid #a855f744;
+  border-radius: 26px;
+  background: linear-gradient(110deg, #25112f, #110d16);
+  box-shadow: inset 0 0 22px #9333ea12, 0 0 20px #9333ea18;
+}
+
+.settings-avatar {
+  display: grid;
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  color: white;
+  font-size: 35px;
+  font-weight: 800;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #c084fc, #6b21a8);
+  box-shadow: 0 0 24px #a855f755;
+}
+
+.settings-account-label,
+.settings-section-title {
+  color: #b9a5c9;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.settings-account h2 {
+  margin: 5px 0 0;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+
+.settings-section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 32px 0 18px;
+}
+
+.settings-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #a855f733;
+}
+
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.settings-option {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  width: 100%;
+  min-height: 86px;
+  padding: 13px 15px;
+  text-align: left;
+  color: #f5f1ff;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(100deg, #17111e, #0d0b11);
+}
+
+.settings-option:focus-visible,
+.settings-option:active {
+  border-color: #c084fc;
+  outline: none;
+  box-shadow: 0 0 18px #a855f744;
+}
+
+.settings-option-icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  color: #f3dfff;
+  font-size: 28px;
+  border: 1px solid #a855f755;
+  border-radius: 19px;
+  background: linear-gradient(145deg, #351746, #140d1b);
+  box-shadow: inset 0 0 15px #a855f722, 0 0 14px #9333ea22;
+}
+
+.settings-option-text {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.settings-option-text strong {
+  font-size: 17px;
+}
+
+.settings-option-text small {
+  color: #b5a8c1;
+  font-size: 13px;
+}
+
+.settings-arrow {
+  color: #c084fc;
+  font-size: 30px;
+}
+
+.settings-logout {
+  width: 100%;
+  min-height: 66px;
+  margin-top: 38px;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  border: 1px solid #c084fc88;
+  border-radius: 20px;
+  background: linear-gradient(100deg, #7025a1, #431263);
+  box-shadow: 0 0 25px #9333ea33;
+}
+
+.settings-footer {
+  padding: 28px 0 12px;
+  color: #8d7c9d;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.settings-notice {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #a855f755;
+  border-radius: 18px;
+  background: #17101f;
+}
+
+.settings-notice button {
+  padding: 10px 18px;
+  color: white;
+  border: 1px solid #a855f777;
+  border-radius: 10px;
+  background: #351746;
+}
+
+@media (max-width: 480px) {
+  .settings-page {
+    padding: 22px 16px;
+  }
+
+  .settings-account {
+    padding: 17px;
+    gap: 14px;
+  }
+
+  .settings-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .settings-option {
+    gap: 12px;
+    min-height: 78px;
+  }
+
+  .settings-option-icon {
+    width: 59px;
+    height: 59px;
+  }
+}
