@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --background: #07070a;
-  --surface: #101015;
+  --bg: #050309;
+  --panel: #100a19;
   --purple: #a855f7;
-  --purple-light: #e879f9;
-  --text: #f7f7fb;
-  --muted: #92929f;
-  --border: #292432;
+  --pink: #f0abfc;
+  --white: #ffffff;
+  --muted: #aaa0b9;
 }
 
 * {
@@ -18,31 +17,28 @@
 
 html {
   min-height: 100%;
-  background: var(--background);
+  background: var(--bg);
 }
 
 body {
   min-height: 100vh;
+  color: var(--white);
+  font-family: Inter, Arial, sans-serif;
   background:
-    radial-gradient(ellipse at top, #20102f 0%, transparent 42%),
-    var(--background);
-  color: var(--text);
-  font-family: 'Inter', Arial, sans-serif;
-}
-
-button,
-input {
-  font: inherit;
+    radial-gradient(ellipse at 50% 0%, #32104c 0%, transparent 40%),
+    radial-gradient(ellipse at 100% 70%, #1c0a2a 0%, transparent 35%),
+    var(--bg);
 }
 
 button {
+  font: inherit;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--purple-light);
+  outline: 2px solid var(--pink);
   outline-offset: 4px;
 }
 
@@ -51,46 +47,50 @@ a {
   text-decoration: none;
 }
 
-/* PÁGINA DE BIENVENIDA */
+/* BIENVENIDA */
 
 .home-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 22px;
 }
 
 .welcome-box {
   width: 100%;
   max-width: 520px;
-  padding: 45px 28px;
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  background: linear-gradient(145deg, #17121f, #0c0c11);
+  padding: 42px 25px;
+  border: 1px solid #66328d;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #1a1025, #09060d);
+  box-shadow: 0 0 35px #a855f71c;
   text-align: center;
 }
 
 .welcome-label {
   margin-bottom: 18px;
-  color: var(--purple-light);
+  color: var(--pink);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 4px;
 }
 
 .welcome-content h1 {
-  font-size: clamp(32px, 8vw, 48px);
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(27px, 7vw, 44px);
   font-weight: 900;
-  letter-spacing: -2px;
+  overflow-wrap: anywhere;
 }
 
-.welcome-content h1 span {
-  color: var(--purple-light);
+.welcome-content h1 span,
+.dashboard-header h1 span {
+  color: var(--pink);
+  text-shadow: 0 0 15px #c026d355;
 }
 
 .welcome-description {
-  margin: 20px 0 30px;
+  margin: 20px 0 28px;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
@@ -98,10 +98,11 @@ a {
 
 .welcome-button {
   display: block;
-  width: 100%;
-  padding: 17px 15px;
-  border-radius: 14px;
-  background: linear-gradient(100deg, #7e22ce, #a855f7);
+  padding: 17px 12px;
+  border: 1px solid var(--pink);
+  border-radius: 12px;
+  background: linear-gradient(100deg, #701ab2, #a855f7);
+  box-shadow: 0 0 20px #a855f744;
   color: white;
   font-size: 13px;
   font-weight: 900;
@@ -114,17 +115,17 @@ a {
   width: 100%;
   max-width: 850px;
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 28px 20px 35px;
+  margin: auto;
+  padding: 27px 20px 35px;
 }
 
 .dashboard-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 10px 0 28px;
-  border-bottom: 1px solid var(--border);
+  gap: 15px;
+  padding: 10px 0 27px;
+  border-bottom: 1px solid #382047;
 }
 
 .dashboard-header > div {
@@ -132,26 +133,23 @@ a {
 }
 
 .dashboard-header > div > p:first-child {
-  margin-bottom: 9px;
-  color: var(--muted);
+  margin-bottom: 10px;
+  color: var(--pink);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 2px;
 }
 
 .dashboard-header h1 {
-  font-size: clamp(23px, 5vw, 32px);
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(20px, 5vw, 31px);
   font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.dashboard-header h1 span {
-  color: var(--purple-light);
+  overflow-wrap: anywhere;
 }
 
 .dashboard-header > div > p:last-child {
   margin-top: 10px;
-  color: #b7b4c2;
+  color: #d2c4df;
   font-size: 14px;
 }
 
@@ -162,4 +160,463 @@ a {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border: 1px solid #
+  border: 1px solid #a855f7;
+  border-radius: 15px;
+  background: #170c22;
+  box-shadow: 0 0 18px #a855f744, inset 0 0 12px #a855f71c;
+  color: white;
+  font-size: 25px;
+}
+
+/* BALANCE, GASTOS Y PEDIDOS */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+  margin: 25px 0 36px;
+}
+
+.stat-card {
+  min-width: 0;
+  padding: 17px 11px;
+  border: 1px solid #382047;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #1c1127, #0b0810);
+  box-shadow: inset 0 0 18px #a855f70b;
+}
+
+.stat-card > span {
+  font-size: 23px;
+}
+
+.stat-card p {
+  margin: 12px 0 8px;
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.stat-card h2 {
+  font-size: clamp(11px, 2.8vw, 18px);
+  overflow-wrap: anywhere;
+}
+
+/* TÍTULOS DEL MENÚ */
+
+.dashboard-menu > h2 {
+  margin-bottom: 18px;
+  color: var(--pink);
+  font-family: Orbitron, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.dashboard-menu > .menu-card {
+  margin-bottom: 15px;
+}
+
+.menu-card {
+  display: block;
+  width: 100%;
+  min-height: 64px;
+  padding: 18px;
+  border: 1px solid #51266e;
+  border-radius: 15px;
+  background: #100a19;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.menu-card p {
+  margin-top: 8px;
+  color: #c1b2d0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.dashboard-extra-menu {
+  display: grid;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.menu-grid .menu-card {
+  min-height: 80px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* LUCES GIRATORIAS VISIBLES EN LAS TARJETAS */
+
+@property --legion-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.dashboard-menu > .menu-card,
+.dashboard-extra-menu > .menu-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#100a19, #100a19) padding-box,
+    conic-gradient(
+      from var(--legion-angle),
+      #5b168c 0deg,
+      #b44dff 55deg,
+      #ffffff 75deg,
+      #f0abfc 95deg,
+      #a855f7 150deg,
+      #3b1256 210deg,
+      #a855f7 275deg,
+      #5b168c 360deg
+    ) border-box;
+  box-shadow:
+    0 0 8px #a855f766,
+    0 0 22px #a855f733,
+    inset 0 0 18px #a855f711;
+  animation: legion-border-spin 3s linear infinite;
+}
+
+@keyframes legion-border-spin {
+  from {
+    --legion-angle: 0deg;
+  }
+
+  to {
+    --legion-angle: 360deg;
+  }
+}
+
+/* BRILLO EXTRA AL TOCAR */
+
+.dashboard-menu > .menu-card:active,
+.dashboard-extra-menu > .menu-card:active {
+  box-shadow:
+    0 0 12px #e879f9,
+    0 0 30px #a855f799,
+    inset 0 0 20px #a855f733;
+}
+
+/* PIE DEL DASHBOARD */
+
+.dashboard-footer {
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 1px solid #382047;
+  text-align: center;
+}
+
+.dashboard-footer p {
+  color: var(--pink);
+  font-family: Orbitron, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.dashboard-footer small {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* PÁGINA DE AJUSTES */
+
+.settings-page {
+  width: 100%;
+  max-width: 650px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 26px 20px 35px;
+}
+
+.settings-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #51266e;
+}
+
+.settings-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-brand-line {
+  width: 6px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: linear-gradient(#ffffff, #f0abfc, #a855f7);
+  box-shadow: 0 0 15px #c026f788;
+}
+
+.settings-brand h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.settings-brand h1 span {
+  color: var(--pink);
+}
+
+.settings-close {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 1px solid #b44dff;
+  border-radius: 14px;
+  background: #170c22;
+  box-shadow: 0 0 15px #a855f744;
+  color: white;
+  font-size: 29px;
+}
+
+/* CUENTA */
+
+.settings-account {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 27px 0;
+  padding: 19px;
+  border: 1px solid #9b45d1;
+  border-radius: 19px;
+  background: linear-gradient(120deg, #29113b, #100a19);
+  box-shadow: 0 0 18px #a855f722, inset 0 0 20px #a855f70d;
+}
+
+.settings-avatar {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f0abfc;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #701ab2, #c026d3);
+  box-shadow: 0 0 20px #a855f766;
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.settings-account-label {
+  color: var(--pink);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.settings-account h2 {
+  margin-top: 7px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.settings-section-title {
+  margin: 30px 0 14px;
+  color: var(--pink);
+  font-family: Orbitron, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* TARJETAS DE AJUSTES CON LUZ GIRATORIA */
+
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.settings-option {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  min-height: 85px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background:
+    linear-gradient(#100a19, #100a19) padding-box,
+    conic-gradient(
+      from var(--legion-angle, 0deg),
+      #5b168c,
+      #b44dff,
+      #ffffff,
+      #f0abfc,
+      #a855f7,
+      #5b168c
+    ) border-box;
+  box-shadow: 0 0 12px #a855f733;
+  color: white;
+  text-align: left;
+  animation: legion-border-spin 3s linear infinite;
+}
+
+.settings-option:nth-child(2) {
+  animation-duration: 3.5s;
+}
+
+.settings-option:nth-child(3) {
+  animation-duration: 4s;
+}
+
+.settings-option:nth-child(4) {
+  animation-duration: 4.5s;
+}
+
+.settings-option-icon {
+  display: flex;
+  width: 51px;
+  height: 51px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #9b45d1;
+  border-radius: 13px;
+  background: #21112e;
+  box-shadow: inset 0 0 12px #a855f722;
+  font-size: 23px;
+}
+
+.settings-option-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.settings-option-text strong {
+  font-size: 15px;
+}
+
+.settings-option-text small {
+  color: #c9bdd5;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.settings-arrow {
+  color: var(--pink);
+  font-size: 28px;
+  text-shadow: 0 0 10px #e879f9;
+}
+
+/* AVISO DE SECCIÓN */
+
+.settings-notice {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #b44dff;
+  border-radius: 15px;
+  background: #170c22;
+  box-shadow: 0 0 20px #a855f733;
+}
+
+.settings-notice p {
+  margin: 10px 0 15px;
+  color: #d3c4df;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.settings-notice button {
+  padding: 11px 16px;
+  border: 1px solid #f0abfc;
+  border-radius: 10px;
+  background: #7e22ce;
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 0 12px #a855f744;
+}
+
+/* CERRAR SESIÓN */
+
+.settings-logout {
+  width: 100%;
+  margin-top: 28px;
+  padding: 17px;
+  border: 1px solid #b44dff;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #37134d, #21102e);
+  box-shadow: 0 0 16px #a855f733;
+  color: #f5dfff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* MÓVILES */
+
+@media (max-width: 420px) {
+  .dashboard-page,
+  .settings-page {
+    padding: 20px 14px 28px;
+  }
+
+  .dashboard-stats {
+    gap: 7px;
+  }
+
+  .stat-card {
+    padding: 14px 8px;
+  }
+
+  .stat-card p {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .settings-account {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .settings-account h2 {
+    font-size: 14px;
+  }
+
+  .settings-option {
+    gap: 11px;
+    padding: 11px;
+  }
+
+  .settings-option-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-menu > .menu-card,
+  .dashboard-extra-menu > .menu-card,
+  .settings-option {
+    animation: none;
+  }
+}
