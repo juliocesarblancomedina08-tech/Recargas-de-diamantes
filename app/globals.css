@@ -1166,3 +1166,46 @@ a {
     padding: 28px 18px;
   }
 }
+/* ===== CORREGIR LUCES MORADAS EN AMBOS LADOS ===== */
+
+.settings-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at left center, #7626a522, transparent 40%),
+    radial-gradient(ellipse at right center, #7626a522, transparent 40%),
+    #09070e !important;
+}
+
+.settings-page::before,
+.settings-page::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #a855f7,
+    #e9b5ff,
+    #9333ea,
+    transparent
+  );
+  box-shadow:
+    0 0 10px #a855f7,
+    0 0 25px #a855f7,
+    0 0 40px #9333ea;
+}
+
+.settings-page::before {
+  left: 0;
+}
+
+.settings-page::after {
+  right: 0;
+}
