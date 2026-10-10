@@ -1063,3 +1063,106 @@ a {
   margin: 0;
   color: #e8d4ff;
   font-size: 13px;
+/* ===== LOGIN LEGIONS VENTAS ===== */
+
+.login-page,
+.auth-page,
+.login-container {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  padding: 32px 22px;
+  overflow: hidden;
+  color: #f8f2ff;
+  background:
+    radial-gradient(ellipse at 50% 25%, #55208055, transparent 55%),
+    #09070e;
+}
+
+.login-page::before,
+.auth-page::before,
+.login-container::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(
+    transparent,
+    #a855f7,
+    #e9b5ff,
+    #9333ea,
+    transparent
+  );
+  box-shadow: 0 0 18px #a855f7, 0 0 35px #9333ea;
+}
+
+.login-page h1,
+.auth-page h1,
+.login-container h1 {
+  color: #fff;
+  font-size: clamp(30px, 8vw, 46px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 0 22px #a855f733;
+}
+
+.login-page input,
+.auth-page input,
+.login-container input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 12px 0;
+  padding: 15px;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #a855f766;
+  border-radius: 13px;
+  outline: none;
+  background: #15101d;
+  box-shadow: inset 0 0 12px #9333ea0d;
+}
+
+.login-page input:focus,
+.auth-page input:focus,
+.login-container input:focus {
+  border-color: #d8a5ff;
+  box-shadow: 0 0 15px #a855f744;
+}
+
+.login-page button,
+.auth-page button,
+.login-container button {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 14px 18px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  border: 1px solid #c084fc88;
+  border-radius: 13px;
+  background: linear-gradient(110deg, #7025a1, #351346);
+  box-shadow: 0 0 18px #9333ea2b;
+}
+
+.login-page a,
+.auth-page a,
+.login-container a {
+  color: #d8a5ff;
+  text-decoration: none;
+}
+
+.login-page p,
+.auth-page p,
+.login-container p {
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .login-page,
+  .auth-page,
+  .login-container {
+    padding: 28px 18px;
+  }
+}
